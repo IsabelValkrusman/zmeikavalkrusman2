@@ -8,12 +8,14 @@ namespace zmeikavalkrusman2
 {
     class point
     {
+        
         public int x;
         public int y;
         public char sym;
 
         public point()
         {
+
         }
         public point(int _x, int _y, char _sym)
         {
@@ -24,8 +26,12 @@ namespace zmeikavalkrusman2
         }
         public void draw()
         {
+            
+               
+            
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
+            Console.ReadLine();
         }
 
     }
