@@ -10,14 +10,62 @@ namespace zmeikavalkrusman2
     {
         static void Main(string[] args)
         {
-            point p1 = new point(1, 3, '*');
-            p1.draw();
+            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
+            HorizontalLine downLine = new HorizontalLine(0, 78, 0, '+');
+            VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
+            VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
+            upLine.Drow();
+            downLine.Drow();
+            leftLine.Drow();
+            rightLine.Drow();
 
-            point p2 = new point(4, 5, '#');
-            p2.draw();
+            point p = new point(4, 5, '*');
+            p.draw();
 
-            Class1 line = new Class1(5, 10, 8, '+');
+
+
+
+            leftline.Draw();
+            rightline.Draw();
+            Parametrs settings = new Parametrs();
+            Sounds sound = new Sounds
+                (settings.GetResourceFolder());
+            sound.Play("stardust.mp3");
+
+
+            point p = new point(4, 5, '*', ConsoleColor.Red);
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Draw();
+            FoodCreator foodCreator = new FoodCreator(101, 26, '¤', ConsoleColor.Green);
+
+            point food = foodCreator.CreateFood();
+            food.draw();
+            Score score = new Score(0, 1);
+            score.ScoreWrite();
+            while (true)
+
+                Class1 line = new Class1(5, 10, 8, '+');
             line.Drow();
+
+            while (true)
+            {
+                if (snake.Eat(food))
+            }
+            score.ScoreUp();
+            score.ScoreWrite();
+            food = foodCreator.CreateFood();
+            food.Draw();
+            if (score.ScoreUp())
+            {
+                score.speed -= 10;
+            }
+        }
+        else
+        {
+
+
+
+
 
             Console.ReadLine();
 
