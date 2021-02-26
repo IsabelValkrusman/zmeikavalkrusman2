@@ -8,28 +8,15 @@ namespace zmeikavalkrusman2
 {
     class Class1
     {
-        List<point> pList;
+        List<Point> pList;
 
-        public Class1(int xLeft, int xReight, int y, sym)
+        public Class1(int xLeft, int xReight, int y, char sym)
         {
-            pList = new List<point>();
-            for(int x= xLeft; x<= xRight; x++)
+            pList = new List<Point>();
+            for (int x = xLeft; x <= xReight; x++)
             {
-                point p = new point(xLeft, y, sym);
+                Point p = new Point(x, y, sym, ConsoleColor.White);
                 pList.Add(p);
-            }
-            //point p1 = new point(4, 4, '*');
-            //point p2 = new point(5, 4, '*');
-            //point p3 = new point(6, 4, '*');
-            //pList.Add(p1);
-            //pList.Add(p2);
-            //pList.Add(p3);
-        }
-        public void Drow()
-        {
-            foreach(point p in pList)
-            {
-                p.draw();
             }
        
         }

@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace zmeikavalkrusman2
 {
-    class VerticalLine
+    class VerticalLine:Figure
     {
         public VerticalLine(int yLeft, int yReight, int x, char sym)
         {
             pList = new List<Point>();
             for (int y = yLeft; y <= yReight; y++)
             {
-                Point p = new Point(x, y, sym);
+                Point p = new Point(x, y, sym, ConsoleColor.White);
                 pList.Add(p);
             }
         }
+    }
 }

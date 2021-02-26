@@ -6,38 +6,30 @@ using System.Threading.Tasks;
 
 namespace zmeikavalkrusman2
 {
-    class point
+    class Point
     {
-
         public int x;
         public int y;
         public char sym;
         public ConsoleColor color;
+        public Point()
+        {
 
-        public point(int x_, int y_, char sym_, string color_)
+        }
+        public Point(int x_, int y_, char sym_, string color_)
+        
         {
             x = x_;
             y = y_;
             sym = sym_;
-            color = color_;
-            //this.isPoison = isPoison;
+            color = color;
         }
-        public point()
-        {
-
-        }
-        public point(int x_, int y_, char sym_, ConsoleColor color_)
-        {
-            x = x_;
-            y = y_;
-            sym = sym_;
-            //this.isPoison = isPoison;
-        }
-        public point(point p)
+        public Point (Point p, ConsoleColor color)
         {
             x = p.x;
             y = p.y;
             sym = p.sym;
+            color = color;
         }
         public void Move(int offset, Direction direction)
         {
@@ -53,9 +45,13 @@ namespace zmeikavalkrusman2
             {
                 y = y - offset;
             }
-            else
+            else if (direction == Direction.DOWN)
             {
                 y = y + offset;
+            }
+            else if(direction==Direction.PAUS)
+            {
+                Console.ReadKey();
             }
 
         }
@@ -77,12 +73,14 @@ namespace zmeikavalkrusman2
             return x + "," + y + "," + sym;
         }
 
-        internal bool IsHit(point p)
+        internal bool IsHit(Point p)
         {
             return p.x == this.x && p.y == this.y;
         }
 
     }
+
+}
 
 }
 }

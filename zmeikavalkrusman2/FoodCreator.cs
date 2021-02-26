@@ -11,6 +11,7 @@ namespace zmeikavalkrusman2
         int mapW;
         int mapH;
         char sym;
+        ConsoleColor color;
         Random rand = new Random();
         public FoodCreator(int mapW, int mapH, char sym, ConsoleColor color_)
         {
@@ -19,11 +20,11 @@ namespace zmeikavalkrusman2
             this.sym = sym;
             color = color_;
         }
-        public point CreateFood()
+        public Point CreateFood()
         {
             int x = rand.Next(2, mapH - 2);
             int y = rand.Next(2, mapH - 2);
-            return new point(x, y, sym, ConsoleColor.Green);
+            return new Point(x, y, sym, color);
         }
     }
  }

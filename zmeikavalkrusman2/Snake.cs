@@ -9,13 +9,13 @@ namespace zmeikavalkrusman2
     class Snake
     {
         public Direction direction;
-        public Snake(point tail, int length, Direction _direction)
+        public Snake(Point tail, int length, Direction _direction)
         {
             direction = _direction;
-            pList = new List<point>();
+            pList = new List<Point>();
             for (int i = 0; i < length; i++)
             {
-                point p = new point(tail);
+                Point p = new Point(tail);
                 p.Move(i, direction);
                 pList.Add(p);
             }
@@ -23,20 +23,21 @@ namespace zmeikavalkrusman2
 
         internal void Move()
         {
-            point tail = pList.First();
-            pList.Remove(tail);
-            point head = GetNextPoint();
-            pList.Add(head);
+            if (true)
+            {
+                Point tail = pList.First();
+                pList.Remove(tail);
+                Point head = GetNextPoint();
+                pList.Add(head);
 
-            tail.Clear();
-            head.Draw();
-
+                tail.Clear();
+                head.Draw();
+            }
         }
-
-        public point GetNextPoint()
+        public Point GetNextPoint()
         {
-            point head = pList.Last();
-            point nextPoint = new point(head);
+            Point head = pList.Last();
+            Point nextPoint = new Point(head, ConsoleColor.Red);
             nextPoint.Move(1, direction);
             return nextPoint;
         }
@@ -60,9 +61,9 @@ namespace zmeikavalkrusman2
             }
 
         }
-        internal bool Eat(point food)
+        internal bool Eat(Point food)
         {
-            point head = GetNextPoint();
+            Point head = GetNextPoint();
             if (head.IsHit(food))
             {
                 food.sym = head.sym;
@@ -74,4 +75,5 @@ namespace zmeikavalkrusman2
                 return false;
             }
         }
+    }
 }
