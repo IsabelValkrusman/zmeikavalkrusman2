@@ -11,25 +11,24 @@ namespace zmeikavalkrusman2
         public int x;
         public int y;
         public char sym;
-        public ConsoleColor color;
         public Point()
         {
 
         }
-        public Point(int x_, int y_, char sym_, string color_)
+        public Point(int x_, int y_, char sym_)
         
         {
             x = x_;
             y = y_;
             sym = sym_;
-            color = color;
+
         }
-        public Point (Point p, ConsoleColor color)
+        public Point (Point p)
         {
             x = p.x;
             y = p.y;
             sym = p.sym;
-            color = color;
+
         }
         public void Move(int offset, Direction direction)
         {
@@ -49,7 +48,7 @@ namespace zmeikavalkrusman2
             {
                 y = y + offset;
             }
-            else if(direction==Direction.PAUS)
+            else if(direction==Direction.PAUSE)
             {
                 Console.ReadKey();
             }
@@ -65,7 +64,6 @@ namespace zmeikavalkrusman2
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
-            Console.ForegroundColor = color;
             Console.Write(sym);
         }
         public override string ToString()
@@ -82,5 +80,5 @@ namespace zmeikavalkrusman2
 
 }
 
-}
-}
+
+
