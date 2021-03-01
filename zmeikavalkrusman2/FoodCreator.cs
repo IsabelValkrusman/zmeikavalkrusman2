@@ -24,7 +24,7 @@ namespace zmeikavalkrusman2
         {
             int x = rand.Next(2, mapH - 2);
             int y = rand.Next(2, mapH - 2);
-            return new Point(x, y, sym, color);
+            return new Point(x, y, sym);
         }
     }
  }

@@ -12,6 +12,6 @@ namespace zmeikavalkrusman2
         RIGHT,
         UP,
         DOWN,
-        PAUS
+        PAUSE
     }
 }

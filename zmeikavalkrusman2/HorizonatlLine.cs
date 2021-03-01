@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace zmeikavalkrusman2
 {
-    public class HorizonatlLine : Figure
+    class HorizontalLine : Figure
     {
-        public HorizontalLine(int xUp, int xDown, int y, char sym)
+
+        public HorizontalLine(int xLeft, int xReight, int y, char sym)
         {
             pList = new List<Point>();
-            for (int x = xUp; x <= xDown; x++)
+            for (int x = xLeft; x < xReight; x++)
             {
-                Point p = new Point(x, y, sym, ConsoleColor.White);
+                Point p = new Point(x, y, sym);
                 pList.Add(p);
             }
         }
+
     }
 }

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace zmeikavalkrusman2
 {
-    class Snake
+    class Snake:Figure
     {
         public Direction direction;
+
         public Snake(Point tail, int length, Direction _direction)
         {
             direction = _direction;
@@ -20,45 +21,40 @@ namespace zmeikavalkrusman2
                 pList.Add(p);
             }
         }
-
         internal void Move()
         {
-            if (true)
+            if (direction != Direction.PAUSE)
             {
                 Point tail = pList.First();
                 pList.Remove(tail);
                 Point head = GetNextPoint();
                 pList.Add(head);
-
                 tail.Clear();
                 head.Draw();
             }
+
         }
         public Point GetNextPoint()
         {
             Point head = pList.Last();
-            Point nextPoint = new Point(head, ConsoleColor.Red);
+            Point nextPoint = new Point(head);
             nextPoint.Move(1, direction);
             return nextPoint;
         }
         public void HandleKey(ConsoleKey key)
         {
             if (key == ConsoleKey.LeftArrow)
-            {
                 direction = Direction.LEFT;
-            }
+
             else if (key == ConsoleKey.RightArrow)
-            {
                 direction = Direction.RIGHT;
-            }
             else if (key == ConsoleKey.DownArrow)
-            {
                 direction = Direction.DOWN;
-            }
             else if (key == ConsoleKey.UpArrow)
-            {
                 direction = Direction.UP;
-            }
+            else if (key == ConsoleKey.Escape)
+                direction = Direction.PAUSE;
+
 
         }
         internal bool Eat(Point food)
@@ -75,5 +71,7 @@ namespace zmeikavalkrusman2
                 return false;
             }
         }
+
+
     }
 }
